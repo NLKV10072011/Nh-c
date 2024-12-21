@@ -1,7 +1,10 @@
 import streamlit as st
 import pandas as pd
 import os
-import bcrypt
+try:
+    import bcrypt
+except ImportError as e:
+    st.error(f"Không thể import bcrypt: {e}")
 from io import StringIO
 try:
     from sqlalchemy import create_engine, exc, text
